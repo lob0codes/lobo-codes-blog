@@ -87,7 +87,7 @@
   --secondary-color: #e9e8e8;
   --background-color: #20262e;
   --accent-color: #913175;
-  --delete-button-background: #cd5888;
+  --button-background: #cd5888;
   --text-color: #e9e8e8;
 }
 
@@ -113,7 +113,6 @@ html {
 body {
   background-color: var(--background-color);
   min-height: 100vh;
-  /* height: 100%; */
   margin: 0;
 }
 

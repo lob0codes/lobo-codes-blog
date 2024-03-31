@@ -5,8 +5,8 @@ export default function Presentation() {
     <section className={classes.presentation}>
       <div className={classes.content}>
         <h1 className={classes.greetings}>Welcome to lob0codes&apos; blog</h1>
-        <p>
-          This is a space to show interesting stuff about React, Next.JS and
+        <p className={classes.description}>
+          This is a space to show interesting things about React, Next.JS and
           Python
         </p>
       </div>

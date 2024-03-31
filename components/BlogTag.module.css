@@ -1,0 +1,14 @@
+.tag {
+  border-width: 0.19rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  text-align: center;
+  width: fit-content;
+  padding: 0.4rem;
+  transition: all 0.4s;
+}
+
+.tag:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
