@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { getAllPosts } from "@/actions";
 import BlogSummary from "./BlogSummary";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 
 export default async function BlogList({ className }: { className?: string }) {
   const blogs = await getAllPosts();
@@ -17,7 +18,9 @@ export default async function BlogList({ className }: { className?: string }) {
       <ul className={classes.content}>
         {blogs.map((blog, index) => (
           <li key={blog.id} className={classes["list-item"]}>
-            <BlogSummary title={blog.title} />
+            <Link href={`/${blog.id}`}>
+              <BlogSummary title={blog.title} />
+            </Link>
             {index !== blogs.length - 1 && (
               <Separator className={classes["separator"]} />
             )}

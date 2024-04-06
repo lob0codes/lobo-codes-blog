@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className={classes.main}>
       <Presentation className={classes.presentation} />;
-      <Separator />
+      <Separator className={classes.separator} />
       <div className={classes["blog-list-container"]}>
         <BlogList />
       </div>

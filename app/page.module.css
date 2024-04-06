@@ -12,3 +12,8 @@
   margin: 8rem auto;
   max-width: 80rem;
 }
+
+.separator {
+  background-color: var(--accent-color);
+  height: 0.4rem;
+}
