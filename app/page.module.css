@@ -2,3 +2,13 @@
   margin: 0 auto;
   max-width: 114rem;
 }
+
+.presentation {
+  margin-top: 9rem;
+  margin-bottom: 7rem;
+}
+
+.blog-list-container {
+  margin: 8rem auto;
+  max-width: 80rem;
+}

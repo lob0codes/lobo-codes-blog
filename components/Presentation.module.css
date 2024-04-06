@@ -1,7 +1,5 @@
 .presentation {
   color: var(--text-color);
-  margin-top: 10rem;
-  margin-bottom: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;

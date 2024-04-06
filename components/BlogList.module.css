@@ -1,0 +1,23 @@
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  color: var(--text-color);
+  max-width: 80rem;
+}
+
+.title h2 {
+  margin-bottom: 2rem;
+}
+
+.title p {
+  font-size: 1.2rem;
+}
+
+.list-item {
+  margin-bottom: 2rem;
+}
+
+.separator {
+  margin-top: 1.3rem;
+}
