@@ -19,7 +19,7 @@ export default async function BlogList({ className }: { className?: string }) {
         {blogs.map((blog, index) => (
           <li key={blog.id} className={classes["list-item"]}>
             <Link href={`/${blog.id}`}>
-              <BlogSummary title={blog.title} />
+              <BlogSummary blog={blog} />
             </Link>
             {index !== blogs.length - 1 && (
               <Separator className={classes["separator"]} />

@@ -12,10 +12,21 @@ if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
 
 export async function getAllPosts() {
   const posts = await db.post.findMany();
+
   return posts;
 }
 
 export async function getPost(id: number) {
   const post = await db.post.findUnique({ where: { id: id } });
   return post;
+}
+
+export async function getPostTags(id: number) {
+  const post = await db.post.findUnique({
+    where: { id: id },
+    include: { tags: true },
+  });
+
+  const tags = post?.tags;
+  return tags;
 }

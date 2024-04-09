@@ -1,15 +1,19 @@
 import classes from "@/components/BlogSummary.module.css";
 import BlogTag from "./BlogTag";
+import { Post } from "@prisma/client";
+import { getPostTags } from "@/actions";
 
-export default function BlogSummary({ title }: { title: string }) {
+export default async function BlogSummary({ blog }: { blog: Post }) {
+  const tags = await getPostTags(blog.id);
+
   return (
     <article className={classes["blog-summary"]}>
       <section className={classes.main}>
-        <p className={classes.description}>{title}</p>
+        <p className={classes.description}>{blog.title}</p>
         <p className={classes["creation-date"]}>Created on 14/05/2024</p>
       </section>
       <section className={classes.footer}>
-        <BlogTag title="Python" />
+        {tags && tags.map((tag) => <BlogTag key={tag.id} name={tag.name} />)}
       </section>
     </article>
   );
