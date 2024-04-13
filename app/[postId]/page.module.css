@@ -1,0 +1,13 @@
+.main {
+  margin: 9rem auto 7rem auto;
+  max-width: 114rem;
+}
+
+.header {
+  color: var(--text-color);
+  text-align: center;
+}
+
+.date {
+  margin-top: 2.5rem;
+}

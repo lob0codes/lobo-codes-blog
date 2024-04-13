@@ -1,4 +1,4 @@
-import classes from "@/components/BlogTag.module.css";
+import classes from "@/components/Tag.module.css";
 
 export default function BlogTag({ name }: { name: string }) {
   return (

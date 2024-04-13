@@ -9,8 +9,10 @@ export default function Navbar() {
     <header className={classes.header}>
       <FontAwesomeIcon icon={faWolfPackBattalion} className={classes.icon} />
       <ul className={classes.navigation}>
-        <li>Home</li>
-        <li>Login</li>
+        <Link href={"/"}>
+          <li className={classes.item}>Home</li>
+        </Link>
+        <li className={classes.item}>Login</li>
       </ul>
     </header>
   );

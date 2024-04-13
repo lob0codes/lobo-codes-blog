@@ -18,3 +18,11 @@
   width: 3.5rem;
   margin-left: 3.5rem;
 }
+
+.item {
+  transition: color 0.4s;
+}
+
+.item:hover {
+  color: var(--button-background-color);
+}

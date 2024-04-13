@@ -1,7 +1,7 @@
 import classes from "@/components/BlogList.module.css";
 import { cn } from "@/lib/utils";
 
-import { getAllPosts } from "@/actions";
+import { getAllPosts } from "@/actions/db";
 import BlogSummary from "./BlogSummary";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
@@ -18,9 +18,7 @@ export default async function BlogList({ className }: { className?: string }) {
       <ul className={classes.content}>
         {blogs.map((blog, index) => (
           <li key={blog.id} className={classes["list-item"]}>
-            <Link href={`/${blog.id}`}>
-              <BlogSummary blog={blog} />
-            </Link>
+            <BlogSummary blog={blog} />
             {index !== blogs.length - 1 && (
               <Separator className={classes["separator"]} />
             )}
