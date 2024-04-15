@@ -114,6 +114,7 @@ body {
   background-color: var(--background-color);
   min-height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 
 h1,
@@ -132,5 +133,13 @@ h1 {
 }
 
 h2 {
+  font-size: 4rem;
+}
+
+h3 {
   font-size: 3rem;
+}
+
+h4 {
+  font-size: 2rem;
 }

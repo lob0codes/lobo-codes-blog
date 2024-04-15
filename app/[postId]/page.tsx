@@ -1,5 +1,6 @@
 import { getPost } from "@/actions/db";
 import { getFirstFile } from "@/actions/fs";
+import { getPostContent } from "@/actions/posts";
 
 import classes from "@/app/[postId]/page.module.css";
 
@@ -17,7 +18,10 @@ export default async function PostDetailsPage({
     day: "numeric",
   });
 
-  const postContent = getFirstFile();
+  let postContent: string | TrustedHTML = "";
+  if (post?.content) {
+    postContent = await getPostContent(post?.content);
+  }
 
   return (
     <main className={classes.main}>
@@ -25,6 +29,9 @@ export default async function PostDetailsPage({
         <h2>{post?.title}</h2>
         <p className={classes.date}>{postDate}</p>
       </header>
+      <section className={classes.content}>
+        <div dangerouslySetInnerHTML={{ __html: postContent }}></div>
+      </section>
     </main>
   );
 }

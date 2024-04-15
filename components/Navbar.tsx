@@ -12,7 +12,9 @@ export default function Navbar() {
         <Link href={"/"}>
           <li className={classes.item}>Home</li>
         </Link>
-        <li className={classes.item}>Login</li>
+        <Link href={"/auth/sign-in"}>
+          <li className={classes.item}>Sign-In</li>
+        </Link>
       </ul>
     </header>
   );
