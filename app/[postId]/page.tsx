@@ -1,5 +1,4 @@
 import { getPost } from "@/actions/db";
-import { getFirstFile } from "@/actions/fs";
 import { getPostContent } from "@/actions/posts";
 
 import classes from "@/app/[postId]/page.module.css";
