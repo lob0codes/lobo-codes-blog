@@ -20,8 +20,20 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { login } from "@/actions/login";
+import { useState } from "react";
+
+import FormError from "./FormError";
+import FormSuccess from "./FormSuccess";
+
+interface LoginResult {
+  error: boolean;
+  message: string;
+}
 
 export default function LoginForm() {
+  const [loginStatus, setLoginStatus] = useState<LoginResult | undefined>();
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -30,8 +42,8 @@ export default function LoginForm() {
     },
   });
 
-  function submitHandler(values: z.infer<typeof LoginSchema>) {
-    console.log(values);
+  async function submitHandler(values: z.infer<typeof LoginSchema>) {
+    setLoginStatus(await login(values));
   }
 
   return (
@@ -79,6 +91,14 @@ export default function LoginForm() {
                 </FormItem>
               )}
             />
+
+            {loginStatus && loginStatus.error && (
+              <FormError message={loginStatus.message} />
+            )}
+            {loginStatus && !loginStatus.error && (
+              <FormSuccess message={loginStatus.message} />
+            )}
+
             <Button type="submit" className={classes["submit-button"]}>
               Login
             </Button>
