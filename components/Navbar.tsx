@@ -12,8 +12,8 @@ export default function Navbar() {
         <Link href={"/"}>
           <li className={classes.item}>Home</li>
         </Link>
-        <Link href={"/auth/sign-in"}>
-          <li className={classes.item}>Sign-In</li>
+        <Link href={"/auth/sign-up"}>
+          <li className={classes.item}>Sign-Up</li>
         </Link>
       </ul>
     </header>

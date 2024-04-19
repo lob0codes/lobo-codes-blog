@@ -1,7 +1,6 @@
 "use client";
 
 import classes from "@/components/auth/LoginForm.module.css";
-import { FaKey } from "react-icons/fa6";
 
 import * as z from "zod";
 import { LoginSchema } from "@/schemas/auth";
@@ -43,68 +42,59 @@ export default function LoginForm() {
   });
 
   async function submitHandler(values: z.infer<typeof LoginSchema>) {
+    console.log(values);
     setLoginStatus(await login(values));
   }
 
   return (
-    <article className={classes["login-form"]}>
-      <header className={classes.header}>
-        <FaKey className={classes.icon} />
-        <h2>Auth</h2>
-      </header>
-      <main className={classes.main}>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(submitHandler)}>
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className={classes.item}>
-                  <FormLabel className={classes.label}>Email:</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Type your email..."
-                      type="email"
-                      className={classes.input}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem className={classes.item}>
-                  <FormLabel className={classes.label}>Password:</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Type your password..."
-                      type="password"
-                      className={classes.input}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {loginStatus && loginStatus.error && (
-              <FormError message={loginStatus.message} />
-            )}
-            {loginStatus && !loginStatus.error && (
-              <FormSuccess message={loginStatus.message} />
-            )}
-
-            <Button type="submit" className={classes["submit-button"]}>
-              Login
-            </Button>
-          </form>
-        </Form>
-      </main>
-    </article>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(submitHandler)}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem className={classes.item}>
+              <FormLabel className={classes.label}>Email:</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  placeholder="Type your email..."
+                  type="email"
+                  className={classes.input}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem className={classes.item}>
+              <FormLabel className={classes.label}>Password:</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  placeholder="Type your password..."
+                  type="password"
+                  className={classes.input}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        {loginStatus && loginStatus.error && (
+          <FormError message={loginStatus.message} />
+        )}
+        {loginStatus && !loginStatus.error && (
+          <FormSuccess message={loginStatus.message} />
+        )}
+        <Button type="submit" className={classes["submit-button"]}>
+          Login
+        </Button>
+      </form>
+    </Form>
   );
 }
