@@ -17,10 +17,10 @@ export default async function PostDetailsPage({
     day: "numeric",
   });
 
-  let postContent: string | TrustedHTML = "";
-  if (post?.content) {
-    postContent = await getPostContent(post?.content);
-  }
+  // let postContent: string | TrustedHTML = "";
+  // if (post?.content) {
+  //   postContent = await getPostContent(post?.content);
+  // }
 
   return (
     <main className={classes.main}>
