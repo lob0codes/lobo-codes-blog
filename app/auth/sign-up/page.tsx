@@ -5,9 +5,7 @@ import FormWrapper from "@/components/auth/FormWrapper";
 export default function SignUpPage() {
   return (
     <main className={classes.main}>
-      <FormWrapper>
-        <SignUpForm />
-      </FormWrapper>
+      <SignUpForm />
     </main>
   );
 }

@@ -24,6 +24,7 @@ import { useState } from "react";
 
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
+import FormWrapper from "./FormWrapper";
 
 interface LoginResult {
   error: boolean;
@@ -47,54 +48,56 @@ export default function LoginForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(submitHandler)}>
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem className={classes.item}>
-              <FormLabel className={classes.label}>Email:</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  placeholder="Type your email..."
-                  type="email"
-                  className={classes.input}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+    <FormWrapper>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(submitHandler)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className={classes.item}>
+                <FormLabel className={classes.label}>Email:</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="Type your email..."
+                    type="email"
+                    className={classes.input}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem className={classes.item}>
+                <FormLabel className={classes.label}>Password:</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="Type your password..."
+                    type="password"
+                    className={classes.input}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {loginStatus && loginStatus.error && (
+            <FormError message={loginStatus.message} />
           )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem className={classes.item}>
-              <FormLabel className={classes.label}>Password:</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  placeholder="Type your password..."
-                  type="password"
-                  className={classes.input}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+          {loginStatus && !loginStatus.error && (
+            <FormSuccess message={loginStatus.message} />
           )}
-        />
-        {loginStatus && loginStatus.error && (
-          <FormError message={loginStatus.message} />
-        )}
-        {loginStatus && !loginStatus.error && (
-          <FormSuccess message={loginStatus.message} />
-        )}
-        <Button type="submit" className={classes["submit-button"]}>
-          Login
-        </Button>
-      </form>
-    </Form>
+          <Button type="submit" className={classes["submit-button"]}>
+            Login
+          </Button>
+        </form>
+      </Form>
+    </FormWrapper>
   );
 }

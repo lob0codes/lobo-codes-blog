@@ -1,4 +1,4 @@
-import { getPost } from "@/actions/db";
+import { getPost } from "@/lib/db";
 import classes from "@/components/Post.module.css";
 
 export default async function Post({ id }: { id: number }) {
