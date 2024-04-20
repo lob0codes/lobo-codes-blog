@@ -17,10 +17,10 @@ export default async function PostDetailsPage({
     day: "numeric",
   });
 
-  // let postContent: string | TrustedHTML = "";
-  // if (post?.content) {
-  //   postContent = await getPostContent(post?.content);
-  // }
+  let postContent: string | TrustedHTML = "";
+  if (post?.content) {
+    postContent = await getPostContent(post?.content);
+  }
 
   return (
     <main className={classes.main}>
@@ -30,6 +30,8 @@ export default async function PostDetailsPage({
       </header>
       <section className={classes.content}>
         {/* <div dangerouslySetInnerHTML={{ __html: postContent }}></div> */}
+        <p>{post?.id}</p>
+        <p>{post?.title}</p>
       </section>
     </main>
   );
