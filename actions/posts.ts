@@ -7,15 +7,17 @@ import html from "remark-html";
 import matter from "gray-matter";
 
 export async function getPostContent(contentPath: string) {
-  const contentFile: string = await fs.readFile(
-    `${process.cwd()}${contentPath}`,
-    "utf-8"
-  );
+  return `${process.cwd}${contentPath}`;
 
-  const matterResult = matter(contentFile);
+  // const contentFile: string = await fs.readFile(
+  //   `${process.cwd()}${contentPath}`,
+  //   "utf-8"
+  // );
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  return processedContent.toString();
+  // const matterResult = matter(contentFile);
+
+  // const processedContent = await remark()
+  //   .use(html)
+  //   .process(matterResult.content);
+  // return processedContent.toString();
 }
