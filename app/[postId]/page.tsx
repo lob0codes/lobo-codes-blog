@@ -30,8 +30,14 @@ export default async function PostDetailsPage({
       </header>
       <section className={classes.content}>
         {/* <div dangerouslySetInnerHTML={{ __html: postContent }}></div> */}
-        <p>{post?.id}</p>
-        <p>{post?.title}</p>
+        {post ? (
+          <>
+            <p>{post?.id}</p>
+            <p>{post?.title}</p>
+          </>
+        ) : (
+          <p>Null</p>
+        )}
       </section>
     </main>
   );
