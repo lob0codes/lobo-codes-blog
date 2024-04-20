@@ -34,6 +34,7 @@ export default async function PostDetailsPage({
           <>
             <p>{post?.id}</p>
             <p>{post?.title}</p>
+            <p>{post?.content}</p>
           </>
         ) : (
           <p>Null</p>
