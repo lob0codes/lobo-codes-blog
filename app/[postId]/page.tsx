@@ -1,9 +1,7 @@
 import { getPost } from "@/lib/db";
 import { getPostContent } from "@/actions/posts";
-import fs from "fs";
 
 import classes from "@/app/[postId]/page.module.css";
-import path from "path";
 
 export default async function PostDetailsPage({
   params,
