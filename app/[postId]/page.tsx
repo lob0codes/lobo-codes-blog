@@ -23,7 +23,8 @@ export default async function PostDetailsPage({
   //   postContent = await getPostContent(post?.content);
   // }
 
-  const x = fs.readdirSync(__dirname.split(".next")[0]);
+  // const x = fs.readdirSync(__dirname.split(".next")[0]);
+  const x = fs.readdirSync(process.cwd());
 
   return (
     <main className={classes.main}>
