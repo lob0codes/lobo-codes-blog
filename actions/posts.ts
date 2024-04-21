@@ -7,9 +7,9 @@ import html from "remark-html";
 import matter from "gray-matter";
 
 export async function getPostContent(contentPath: string) {
-  const site_url = "https://lobo-codes-blog.vercel.app/";
+  const site_url = "https://lobo-codes-blog.vercel.app";
   const contentFile: string = await fs.readFile(
-    `${process.cwd()}/${contentPath}`,
+    `${site_url}${contentPath}`,
     "utf-8"
   );
 
