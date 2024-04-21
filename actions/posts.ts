@@ -14,7 +14,7 @@ export async function getPostContent(contentPath: string) {
   //   "utf-8"
   // );
 
-  return process.cwd();
+  return process.cwd() + "/public" + contentPath;
 
   // const contentFile: string = await fs.readFile(
   //   `${process.cwd()}${contentPath}`,
