@@ -18,9 +18,9 @@ export default async function PostDetailsPage({
   });
 
   let postContent: string | TrustedHTML = "";
-  if (post?.content) {
-    postContent = await getPostContent(post?.content);
-  }
+  // if (post?.content) {
+  //   postContent = await getPostContent(post?.content);
+  // }
 
   return (
     <main className={classes.main}>
