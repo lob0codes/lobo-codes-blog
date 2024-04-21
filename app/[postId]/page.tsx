@@ -16,13 +16,13 @@ export default async function PostDetailsPage({
     month: "numeric",
     day: "numeric",
   });
-  let render_content = undefined;
 
   // let postContent: string | TrustedHTML = "";
   let postContent: string = "";
   if (post?.content) {
-    postContent = await getPostContent(post?.content);
-    render_content = <p>{postContent}</p>;
+    await getPostContent(post?.content);
+    // postContent = await getPostContent(post?.content);
+    // render_content = <p>{postContent}</p>;
   }
 
   return (
@@ -33,7 +33,6 @@ export default async function PostDetailsPage({
       </header>
       <section className={classes.content}>
         {/* <div dangerouslySetInnerHTML={{ __html: postContent }}></div> */}
-        {render_content}
       </section>
     </main>
   );
