@@ -7,10 +7,12 @@ import html from "remark-html";
 import matter from "gray-matter";
 
 export async function getPostContent(contentPath: string) {
-  const contentFile: string = await fs.readFile(
-    `${process.cwd()}${contentPath}`,
-    "utf-8"
-  );
+  // const contentFile: string = await fs.readFile(
+  //   `${process.cwd()}/${contentPath}`,
+  //   "utf-8"
+  // );
+
+  const contentFile: string = await fs.readFile(contentPath, "utf-8");
 
   // return contentFile;
 
