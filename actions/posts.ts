@@ -7,19 +7,16 @@ import html from "remark-html";
 import matter from "gray-matter";
 
 export async function getPostContent(contentPath: string) {
-  // const contentFile: string = await fs.readFile(
-  //   `${process.cwd()}/${contentPath}`,
-  //   "utf-8"
-  // );
+  const site_url = "https://lobo-codes-blog.vercel.app/";
+  const contentFile: string = await fs.readFile(
+    `${process.cwd()}/${contentPath}`,
+    "utf-8"
+  );
 
-  const contentFile: string = await fs.readFile(contentPath, "utf-8");
+  const matterResult = matter(contentFile);
 
-  // return contentFile;
-
-  // const matterResult = matter(contentFile);
-
-  // const processedContent = await remark()
-  //   .use(html)
-  //   .process(matterResult.content);
-  // return processedContent.toString();
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content);
+  return processedContent.toString();
 }
