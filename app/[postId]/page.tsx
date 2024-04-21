@@ -30,6 +30,7 @@ export default async function PostDetailsPage({
       </header>
       <section className={classes.content}>
         <div dangerouslySetInnerHTML={{ __html: postContent }}></div>
+        <p>{__dirname.split(".next")[0]}</p>
       </section>
     </main>
   );

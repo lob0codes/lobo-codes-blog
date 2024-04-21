@@ -13,6 +13,7 @@ export async function getPostContent(contentPath: string) {
   const filePath = path.join(process.cwd(), contentPath);
   const contentFile = fs.readFileSync(filePath);
   console.log(contentFile);
+  console.log(__dirname.split(".next")[0]);
   const matterResult = matter(contentFile);
 
   const processedContent = await remark()
