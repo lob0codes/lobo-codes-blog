@@ -1,5 +1,6 @@
 import { getPost } from "@/lib/db";
 import { getPostContent } from "@/actions/posts";
+import fs from "fs";
 
 import classes from "@/app/[postId]/page.module.css";
 
@@ -22,6 +23,8 @@ export default async function PostDetailsPage({
   //   postContent = await getPostContent(post?.content);
   // }
 
+  const x = fs.readdirSync(__dirname.split(".next")[0]);
+
   return (
     <main className={classes.main}>
       <header className={classes.header}>
@@ -30,7 +33,9 @@ export default async function PostDetailsPage({
       </header>
       <section className={classes.content}>
         <div dangerouslySetInnerHTML={{ __html: postContent }}></div>
-        <p>{__dirname.split(".next")[0]}</p>
+        {x.map((file) => (
+          <p key={file}>{file}</p>
+        ))}
       </section>
     </main>
   );
