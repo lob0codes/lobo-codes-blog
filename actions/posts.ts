@@ -1,6 +1,6 @@
 "use server";
 
-import { promises as fs } from "fs";
+import fs from "fs";
 import path from "path";
 
 import { remark } from "remark";
@@ -11,7 +11,7 @@ export async function getPostContent(contentPath: string) {
   const site_url = "https://lobo-codes-blog.vercel.app/type-script-advanced.md";
 
   const filePath = path.join(process.cwd(), contentPath);
-  const contentFile: string = await fs.readFile(filePath, "utf-8");
+  const contentFile: string = fs.readFileSync(filePath, "utf-8");
   console.log(contentFile);
   const matterResult = matter(contentFile);
 
