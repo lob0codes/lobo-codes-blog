@@ -3,6 +3,7 @@ import { getPostContent } from "@/actions/posts";
 import fs from "fs";
 
 import classes from "@/app/[postId]/page.module.css";
+import path from "path";
 
 export default async function PostDetailsPage({
   params,
@@ -25,6 +26,9 @@ export default async function PostDetailsPage({
 
   // const x = fs.readdirSync(__dirname.split(".next")[0]);
   const x = fs.readdirSync(process.cwd());
+  const test = path.join(process.cwd(), "public", "python-basics.md");
+  const test2 = fs.readFileSync(test);
+  console.log(test2);
 
   return (
     <main className={classes.main}>
@@ -37,6 +41,8 @@ export default async function PostDetailsPage({
         {x.map((file) => (
           <p key={file}>{file}</p>
         ))}
+
+        <p>{test}</p>
       </section>
     </main>
   );
