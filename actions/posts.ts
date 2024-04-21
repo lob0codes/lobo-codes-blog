@@ -11,7 +11,7 @@ export async function getPostContent(contentPath: string) {
   const site_url = "https://lobo-codes-blog.vercel.app/type-script-advanced.md";
 
   const filePath = path.join(process.cwd(), contentPath);
-  const contentFile: string = fs.readFileSync(filePath, "utf-8");
+  const contentFile = fs.readFileSync(filePath);
   console.log(contentFile);
   const matterResult = matter(contentFile);
 
