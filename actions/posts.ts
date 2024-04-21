@@ -8,9 +8,7 @@ import html from "remark-html";
 import matter from "gray-matter";
 
 export async function getPostContent(contentPath: string) {
-  const site_url = "https://lobo-codes-blog.vercel.app/type-script-advanced.md";
-
-  const filePath = path.join(process.cwd(), contentPath);
+  const filePath = path.join(process.cwd(), "public", contentPath);
   const contentFile = fs.readFileSync(filePath);
 
   const matterResult = matter(contentFile);

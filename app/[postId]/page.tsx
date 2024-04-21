@@ -20,15 +20,9 @@ export default async function PostDetailsPage({
   });
 
   let postContent: string | TrustedHTML = "";
-  // if (post?.content) {
-  //   postContent = await getPostContent(post?.content);
-  // }
-
-  // const x = fs.readdirSync(__dirname.split(".next")[0]);
-  const x = fs.readdirSync(process.cwd());
-  const test = path.join(process.cwd(), "public", "python-basics.md");
-  const test2 = fs.readFileSync(test);
-  console.log(test2);
+  if (post?.content) {
+    postContent = await getPostContent(post?.content);
+  }
 
   return (
     <main className={classes.main}>
@@ -38,11 +32,6 @@ export default async function PostDetailsPage({
       </header>
       <section className={classes.content}>
         <div dangerouslySetInnerHTML={{ __html: postContent }}></div>
-        {x.map((file) => (
-          <p key={file}>{file}</p>
-        ))}
-
-        <p>{test}</p>
       </section>
     </main>
   );
