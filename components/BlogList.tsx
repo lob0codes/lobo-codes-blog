@@ -1,7 +1,7 @@
 import classes from "@/components/BlogList.module.css";
 import { cn } from "@/lib/utils";
 
-import { getAllPosts } from "@/lib/db";
+import { getAllPosts } from "@/actions/db";
 import BlogSummary from "./BlogSummary";
 import { Separator } from "./ui/separator";
 import Link from "next/link";

@@ -1,5 +1,3 @@
-"use server";
-
 import fs from "fs";
 import path from "path";
 
@@ -8,7 +6,11 @@ import html from "remark-html";
 import matter from "gray-matter";
 
 export async function getPostContent(contentPath: string) {
-  const filePath = path.join(process.cwd(), "public", contentPath);
+  //dev
+  const filePath = path.join(process.cwd(), "public/content/", contentPath);
+
+  //Prod
+  //   const filePath = path.join(process.cwd(), "public", contentPath);
   const contentFile = fs.readFileSync(filePath);
 
   const matterResult = matter(contentFile);

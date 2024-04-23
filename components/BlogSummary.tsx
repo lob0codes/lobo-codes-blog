@@ -1,7 +1,7 @@
 import classes from "@/components/BlogSummary.module.css";
 import BlogTag from "./Tag";
 import { Post } from "@prisma/client";
-import { getPostTags } from "@/lib/db";
+import { getPostTags } from "@/actions/db";
 import Link from "next/link";
 
 export default async function BlogSummary({ blog }: { blog: Post }) {

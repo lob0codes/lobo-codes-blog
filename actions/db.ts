@@ -30,3 +30,45 @@ export async function getPostTags(id: number) {
   const tags = post?.tags;
   return tags;
 }
+
+export async function getUserByEmail(email: string) {
+  try {
+    const user = await db.user.findUnique({
+      where: { email },
+    });
+
+    return user;
+  } catch {
+    return null;
+  }
+}
+
+export async function getUserById(id: string) {
+  try {
+    const user = await db.user.findUnique({
+      where: { id },
+    });
+
+    return user;
+  } catch {
+    return null;
+  }
+}
+
+export async function createUser(
+  name: string,
+  email: string,
+  hashedPassword: string
+) {
+  try {
+    await db.user.create({
+      data: {
+        name,
+        email,
+        password: hashedPassword,
+      },
+    });
+  } catch {
+    return null;
+  }
+}
