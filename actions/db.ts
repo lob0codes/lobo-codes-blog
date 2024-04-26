@@ -1,28 +1,20 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
-
-declare global {
-  var prisma: PrismaClient | undefined;
-}
-
-const db = globalThis.prisma || new PrismaClient();
-
-if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
+import prisma from "@/lib/prisma";
 
 export async function getAllPosts() {
-  const posts = await db.post.findMany();
+  const posts = await prisma.post.findMany();
 
   return posts;
 }
 
 export async function getPost(id: number) {
-  const post = await db.post.findUnique({ where: { id: id } });
+  const post = await prisma.post.findUnique({ where: { id: id } });
   return post;
 }
 
 export async function getPostTags(id: number) {
-  const post = await db.post.findUnique({
+  const post = await prisma.post.findUnique({
     where: { id: id },
     include: { tags: true },
   });
@@ -33,7 +25,7 @@ export async function getPostTags(id: number) {
 
 export async function getUserByEmail(email: string) {
   try {
-    const user = await db.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { email },
     });
 
@@ -45,7 +37,7 @@ export async function getUserByEmail(email: string) {
 
 export async function getUserById(id: string) {
   try {
-    const user = await db.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { id },
     });
 
@@ -61,7 +53,7 @@ export async function createUser(
   hashedPassword: string
 ) {
   try {
-    await db.user.create({
+    await prisma.user.create({
       data: {
         name,
         email,
