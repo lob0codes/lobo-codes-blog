@@ -57,7 +57,6 @@ export async function createUser(
       data: {
         name,
         email,
-        password: hashedPassword,
       },
     });
   } catch {
