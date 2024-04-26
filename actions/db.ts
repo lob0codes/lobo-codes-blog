@@ -3,9 +3,12 @@
 import prisma from "@/lib/prisma";
 
 export async function getAllPosts() {
-  const posts = await prisma.post.findMany();
-
-  return posts;
+  try {
+    const posts = await prisma.post.findMany();
+    return posts;
+  } catch {
+    console.log("Error getting all posts.");
+  }
 }
 
 export async function getPost(id: number) {
@@ -57,7 +60,6 @@ export async function createUser(
       data: {
         name,
         email,
-        password: hashedPassword,
       },
     });
   } catch {

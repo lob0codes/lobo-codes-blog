@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { getAllPosts } from "@/actions/db";
 import BlogSummary from "./BlogSummary";
 import { Separator } from "./ui/separator";
-import Link from "next/link";
 
 export default async function BlogList({ className }: { className?: string }) {
   const blogs = await getAllPosts();
