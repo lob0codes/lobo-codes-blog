@@ -1,9 +1,18 @@
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import Google from "next-auth/providers/google";
+import GitHub from "next-auth/providers/github";
 
 import prisma from "@/lib/prisma";
+import { signUp } from "./actions/sign-up";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const config = {
+  theme: { logo: "/wolf.svg" },
   adapter: PrismaAdapter(prisma),
-  providers: [],
-});
+  providers: [Google, GitHub],
+  // pages: {
+  //   signIn: "/auth/login",
+  // },
+};
+
+export const { handlers, auth, signIn, signOut } = NextAuth(config);

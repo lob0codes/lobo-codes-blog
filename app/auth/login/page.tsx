@@ -5,7 +5,10 @@ import FormWrapper from "@/components/auth/FormWrapper";
 export default function LogInPage() {
   return (
     <main className={classes.main}>
-      <LoginForm />
+      {/* <FormWrapper>
+
+      </FormWrapper> */}
+      {/* <LoginForm /> */}
     </main>
   );
 }

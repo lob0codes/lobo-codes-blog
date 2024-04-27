@@ -1,0 +1,10 @@
+.user {
+  display: flex;
+  gap: 1rem;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+
+.user:hover {
+  color: var(--button-background-color);
+}
