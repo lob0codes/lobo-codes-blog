@@ -3,7 +3,7 @@
 import classes from "@/components/auth/LoginForm.module.css";
 
 import * as z from "zod";
-import { LoginSchema } from "@/schemas/auth";
+import { LoginSchema } from "@/zod_schemas/auth";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

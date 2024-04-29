@@ -4,7 +4,6 @@ import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
 
 import prisma from "@/lib/prisma";
-import { signUp } from "./actions/sign-up";
 
 export const config = {
   theme: { logo: "/wolf.svg" },

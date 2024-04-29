@@ -16,6 +16,8 @@
 }
 
 .label {
+  background-color: var(--accent-color);
+  color: var(--text-color);
   font-weight: bold;
   font-size: 1.3rem;
 }

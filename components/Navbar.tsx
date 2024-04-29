@@ -11,9 +11,9 @@ export default async function Navbar() {
     <header className={classes.header}>
       <FontAwesomeIcon icon={faWolfPackBattalion} className={classes.icon} />
       <ul className={classes.navigation}>
-        <Link href={"/"}>
-          <li className={classes.item}>Home</li>
-        </Link>
+        <li className={classes.item}>
+          <Link href={"/"}>Home</Link>
+        </li>
         <li>
           <User />
         </li>

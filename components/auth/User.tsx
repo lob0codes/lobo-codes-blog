@@ -7,6 +7,13 @@ import UserButton from "@/components/auth/UserButton";
 export default async function User() {
   const session = await auth();
   const user = session?.user;
-
+  // if (user) {
+  //   return (
+  //     <div>
+  //       <UserButton user={user} />{" "}
+  //     </div>
+  //   );
+  // }
+  // return <p>lol</p>;
   return <div>{user ? <UserButton user={user} /> : <SignInButton />}</div>;
 }

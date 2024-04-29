@@ -3,7 +3,7 @@
 import * as z from "zod";
 import bcrypt from "bcrypt";
 
-import { SignUpSchema } from "@/schemas/auth";
+import { SignUpSchema } from "@/zod_schemas/auth";
 import { createUser, getUserByEmail } from "./db";
 
 export async function signUp(values: z.infer<typeof SignUpSchema>) {

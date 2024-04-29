@@ -50,11 +50,7 @@ export async function getUserById(id: string) {
   }
 }
 
-export async function createUser(
-  name: string,
-  email: string,
-  hashedPassword: string
-) {
+export async function createUser(name: string, email: string) {
   try {
     await prisma.user.create({
       data: {

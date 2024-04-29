@@ -3,6 +3,8 @@ import classes from "@/components/auth/UserButton.module.css";
 import { User } from "next-auth";
 import { UserRound } from "lucide-react";
 
+import SignOutButton from "./SignOutButton";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +17,7 @@ import {
 export default function UserButton({ user }: { user: User }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <div className={classes["user-intro"]}>
           <UserRound />
           <p>{user.name}</p>
@@ -26,7 +28,9 @@ export default function UserButton({ user }: { user: User }) {
           User Settings
         </DropdownMenuLabel>
         <DropdownMenuSeparator className={classes.separator} />
-        <DropdownMenuItem className={classes.item}>Log out</DropdownMenuItem>
+        <DropdownMenuItem className={classes.item}>
+          <SignOutButton />
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
