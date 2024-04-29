@@ -1,3 +1,5 @@
+import classes from "@/app/settings/page.module.css";
+
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
@@ -11,5 +13,9 @@ export default async function SettingsPage() {
     redirect("/api/auth/signin?callbackUrl=/settings");
   }
 
-  return <SettingsForm user={user} />;
+  return (
+    <main className={classes.main}>
+      <SettingsForm user={user} />;
+    </main>
+  );
 }

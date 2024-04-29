@@ -72,36 +72,36 @@ export default function SettingsForm({ user }: { user: User }) {
       </header>
       <main>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(submitHandler)}>
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem className={classes.item}>
-                  <FormLabel className={classes.label}>
-                    Type new name:
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="Type your new name..."
-                      type="text"
-                      className={classes.input}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+          <form
+            onSubmit={form.handleSubmit(submitHandler)}
+            className={classes.form}
+          >
+            <section className={classes["form-content"]}>
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem className={classes.item}>
+                    <FormLabel className={classes.label}>
+                      Type new name:
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} type="text" className={classes.input} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {settingsChangeStatus && settingsChangeStatus.error && (
+                <FormError message={settingsChangeStatus.message} />
               )}
-            />
-            {settingsChangeStatus && settingsChangeStatus.error && (
-              <FormError message={settingsChangeStatus.message} />
-            )}
-            {settingsChangeStatus && !settingsChangeStatus.error && (
-              <FormSuccess message={settingsChangeStatus.message} />
-            )}
-            <Button type="submit" className={classes["submit-button"]}>
-              Submit
-            </Button>
+              {settingsChangeStatus && !settingsChangeStatus.error && (
+                <FormSuccess message={settingsChangeStatus.message} />
+              )}
+              <Button type="submit" className={classes["submit-button"]}>
+                Submit
+              </Button>
+            </section>
           </form>
         </Form>
       </main>
