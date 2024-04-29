@@ -1,0 +1,11 @@
+.form {
+  background-color: var(--accent-color);
+  border-radius: 1rem;
+  color: var(--primary-color);
+  width: 40rem;
+}
+
+.icon {
+  width: 10rem;
+  height: 10rem;
+}

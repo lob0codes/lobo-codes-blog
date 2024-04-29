@@ -2,15 +2,26 @@ import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
+import { Provider } from "next-auth/providers";
 
 import prisma from "@/lib/prisma";
 
+const providers: Provider[] = [Google, GitHub];
+
+export const providersMap = providers.map((provider) => {
+  if (typeof provider === "function") {
+    const providerData = provider();
+    return { id: providerData.id, name: providerData.name };
+  } else {
+    return { id: provider.id, name: provider.name };
+  }
+});
+
 export const config = {
-  theme: { logo: "/wolf.svg" },
   adapter: PrismaAdapter(prisma),
-  providers: [Google, GitHub],
+  providers: providers,
   // pages: {
-  //   signIn: "/auth/login",
+  //   signIn: "/sign-in",
   // },
 };
 

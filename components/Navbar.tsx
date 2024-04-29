@@ -14,7 +14,7 @@ export default async function Navbar() {
         <li className={classes.item}>
           <Link href={"/"}>Home</Link>
         </li>
-        <li>
+        <li className={classes.item}>
           <User />
         </li>
       </ul>
