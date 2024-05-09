@@ -22,7 +22,7 @@ export async function signUp(values: z.infer<typeof SignUpSchema>) {
     return { error: true, message: "Email already in use!" };
   }
 
-  await createUser(name, email, hashedPassword);
+  // await createUser(name, email, hashedPassword);
 
   return { error: false, message: "User created!!!" };
 }
