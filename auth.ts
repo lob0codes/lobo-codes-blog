@@ -3,10 +3,11 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
 import { Provider } from "next-auth/providers";
+import { Providers } from "@/enums/providers";
 
 import prisma from "@/lib/prisma";
 
-const providers: Provider[] = [Google, GitHub];
+export const providers: Provider[] = [Google, GitHub];
 
 export const providersMap = providers.map((provider) => {
   if (typeof provider === "function") {
@@ -17,12 +18,10 @@ export const providersMap = providers.map((provider) => {
   }
 });
 
-export const config = {
+export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  providers: providers,
-  // pages: {
-  //   signIn: "/sign-in",
-  // },
-};
-
-export const { handlers, auth, signIn, signOut } = NextAuth(config);
+  providers: [Google, GitHub],
+  pages: {
+    signIn: "/auth/sign-in",
+  },
+});

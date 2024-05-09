@@ -1,12 +1,11 @@
 import classes from "@/components/auth/SignInForm.module.css";
 
-import { providersMap } from "@/auth";
-import signInToProvider from "@/actions/sign-in-to-provider";
+import { providersMap, signIn } from "@/auth";
 
 import { faWolfPackBattalion } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { Button } from "@/components/ui/button";
+import ProviderButton from "@/components/auth/ProviderButton";
 
 export default async function SignInForm() {
   return (
@@ -15,17 +14,19 @@ export default async function SignInForm() {
         <FontAwesomeIcon icon={faWolfPackBattalion} className={classes.icon} />
       </header>
       <main>
-        {providersMap.map((provider) => (
-          <form
-            action={async () => {
-              "use server";
-              await signInToProvider(provider.id);
-            }}
-            key={provider.id}
-          >
-            <Button type="submit">{provider.name}</Button>
-          </form>
-        ))}
+        <div className={classes["button-list"]}>
+          {providersMap.map((provider) => (
+            <form
+              action={async () => {
+                "use server";
+                await signIn(provider.id, { redirectTo: "/" });
+              }}
+              key={provider.id}
+            >
+              <ProviderButton name={provider.name} />
+            </form>
+          ))}
+        </div>
       </main>
     </article>
   );

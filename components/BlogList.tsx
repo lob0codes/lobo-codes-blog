@@ -8,6 +8,10 @@ import { Separator } from "./ui/separator";
 export default async function BlogList({ className }: { className?: string }) {
   const blogs = await getAllPosts();
 
+  if (blogs) {
+    return <p>No data to show</p>;
+  }
+
   return (
     <article className={cn(className, classes["blog-list"])}>
       <div className={classes.title}>
