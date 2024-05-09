@@ -8,7 +8,7 @@ import { Separator } from "./ui/separator";
 export default async function BlogList({ className }: { className?: string }) {
   const blogs = await getAllPosts();
 
-  if (blogs) {
+  if (blogs === undefined) {
     return <p>No data to show</p>;
   }
 
