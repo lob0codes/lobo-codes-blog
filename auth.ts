@@ -6,7 +6,7 @@ import { Provider } from "next-auth/providers";
 
 import prisma from "@/lib/prisma";
 
-export const providers: Provider[] = [Google, GitHub];
+export const providers: Provider[] = [Google];
 
 export const providersMap = providers.map((provider) => {
   if (typeof provider === "function") {
@@ -19,7 +19,7 @@ export const providersMap = providers.map((provider) => {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  providers: [Google, GitHub],
+  providers: [Google],
   pages: {
     signIn: "/auth/sign-in",
   },
