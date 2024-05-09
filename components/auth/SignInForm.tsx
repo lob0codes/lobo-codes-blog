@@ -19,7 +19,9 @@ export default async function SignInForm() {
             <form
               action={async () => {
                 "use server";
-                await signIn(provider.id, { redirectTo: "/" });
+                await signIn(provider.id, {
+                  redirectTo: "https://lobo-codes-blog.vercel.app/",
+                });
               }}
               key={provider.id}
             >
