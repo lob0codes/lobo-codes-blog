@@ -1,6 +1,6 @@
 "use server";
 
-import { LoginSchema } from "@/schemas/auth";
+import { LoginSchema } from "@/zod_schemas/auth";
 import * as z from "zod";
 
 export async function login(values: z.infer<typeof LoginSchema>) {

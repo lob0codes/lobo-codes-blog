@@ -1,0 +1,39 @@
+.user-intro {
+  display: flex;
+  gap: 1rem;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+
+.user-intro:hover {
+  color: var(--button-background-color);
+}
+
+.content {
+  background-color: var(--background-color);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.label {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.item {
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.item:hover {
+  color: var(--button-background-color);
+  background-color: rgba(205, 88, 136, 0.2);
+}
+
+.separator {
+  background-color: var(--accent-color);
+}

@@ -18,3 +18,7 @@ export const SignUpSchema = z.object({
   }),
   name: z.string().min(1, { message: "Name is required." }),
 });
+
+export const UserSettingsSchema = z.object({
+  name: z.string().min(1, { message: "Name is required" }),
+});
